@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joke Bot AI | Comedy Machine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-shell">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="bot-mark">JB</div>
+        <div>
+          <h1>Joke Bot</h1>
+          <p>AI COMEDY MACHINE</p>
+        </div>
+      </div>
+
+      <div class="mission-pill">
+        <span class="status-dot"></span>
+        <span>Comedy Mission <strong id="missionNumber">01</strong></span>
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">YOUR DAILY LAUGH DELIVERY</span>
+          <h2>Need a little<br><span>laugh?</span></h2>
+          <p>Pick a comedy mood, press the button, and let the Joke Bot find something fun for you.</p>
+        </div>
+
+        <div class="bot-orbit" aria-hidden="true">
+          <div class="orbit-ring"></div>
+          <div class="bot-face">
+            <span class="eye left-eye"></span>
+            <span class="eye right-eye"></span>
+            <span class="bot-mouth"></span>
+          </div>
+          <span class="orbit-dot dot-one"></span>
+          <span class="orbit-dot dot-two"></span>
+        </div>
+      </section>
+
+      <section class="control-panel">
+        <div class="section-heading">
+          <div>
+            <span class="mini-label">STEP 01</span>
+            <h3>Choose your comedy mood</h3>
+          </div>
+          <span class="safe-badge">✓ CLEAN MODE</span>
+        </div>
+
+        <div class="mood-grid">
+          <button class="mood active" data-category="Misc">
+            <span class="mood-icon">☻</span>
+            <span>Random Fun</span>
+          </button>
+
+          <button class="mood" data-category="Pun">
+            <span class="mood-icon">!</span>
+            <span>Dad Jokes</span>
+          </button>
+
+          <button class="mood" data-category="Programming">
+            <span class="mood-icon">&lt;/&gt;</span>
+            <span>Coder Laughs</span>
+          </button>
+        </div>
+
+        <button id="getJokeBtn" class="main-button">
+          <span class="button-icon">✦</span>
+          <span>START COMEDY MISSION</span>
+          <span class="button-arrow">→</span>
+        </button>
+      </section>
+
+      <section class="joke-zone">
+        <div class="mission-line">
+          <span class="mini-label">MISSION OUTPUT</span>
+          <span id="categoryLabel">RANDOM FUN</span>
+        </div>
+
+        <div id="jokeCard" class="joke-card waiting">
+          <div class="joke-top">
+            <span class="joke-tag">JOKE INCOMING</span>
+            <span id="jokeNumber">#001</span>
+          </div>
+
+          <div class="joke-content">
+            <div class="quote-mark">“</div>
+            <p id="jokeText">Your next laugh is waiting.<br>Press <strong>Start Comedy Mission</strong> to begin.</p>
+          </div>
+
+          <div id="loading" class="loading hidden">
+            <span></span><span></span><span></span>
+            <p>Joke Bot is thinking...</p>
+          </div>
+
+          <div class="joke-footer">
+            <span id="sourceText">Powered by JokeAPI</span>
+            <span id="jokeStatus">READY</span>
+          </div>
+        </div>
+
+        <div id="errorBox" class="error-box hidden">
+          <strong>Comedy signal lost.</strong>
+          <span id="errorText">Please try again.</span>
+        </div>
+
+        <div class="reaction-row">
+          <p>How was that one?</p>
+          <div class="reaction-buttons">
+            <button class="reaction" data-reaction="laugh">😂 <span>Made me laugh</span></button>
+            <button class="reaction" data-reaction="okay">🙂 <span>Pretty good</span></button>
+            <button class="reaction" data-reaction="again">🔁 <span>Try again</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <div>
+            <strong id="jokesServed">0</strong>
+            <small>JOKES SERVED</small>
+          </div>
+        </div>
+
+        <div class="stat">
+          <span class="stat-icon">☺</span>
+          <div>
+            <strong id="laughScore">0</strong>
+            <small>LAUGH SCORE</small>
+          </div>
+        </div>
+
+        <div class="stat">
+          <span class="stat-icon">⚡</span>
+          <div>
+            <strong id="streak">0</strong>
+            <small>FUN STREAK</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="bonus-card">
+        <div>
+          <span class="mini-label">COMEDY BONUS</span>
+          <h3>Keep the laughs going.</h3>
+          <p>Every joke you enjoy adds to your Laugh Score. Can you build a 5-joke fun streak?</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span>FUN STREAK</span>
+            <strong id="streakText">0 / 5</strong>
+          </div>
+          <div class="progress-bar">
+            <span id="streakBar"></span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <span>JOKE BOT AI COMEDY MACHINE</span>
+      <span>Simple jokes • Clean mode • API powered</span>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
